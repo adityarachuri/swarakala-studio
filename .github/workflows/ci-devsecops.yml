@@ -1,0 +1,120 @@
+name: DevSecOps CI & Quality Gates
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  hygiene-and-compliance:
+    name: Gate 1 · Codeowner, Attribution & Secret Hygiene
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Run Repository Compliance & Community Health Audit
+        run: node scripts/verify-repo-compliance.mjs
+
+      - name: Scan Source & Commit History for Exposed Secrets
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: false
+
+  sast-and-dependency-audit:
+    name: Gate 2 · CodeQL SAST & Dependency Audit
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies (frozen lockfile)
+        run: npm ci --ignore-scripts
+
+      - name: Audit npm dependency tree (high / critical vulnerabilities)
+        run: npm audit --audit-level=high
+
+      - name: Initialize CodeQL Analyzer
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript-typescript
+          queries: security-extended
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:javascript-typescript"
+
+  build-test-and-sbom:
+    name: Gate 3 · Typecheck, Vite/PWA Build, Worker Bundle & SBOM
+    runs-on: ubuntu-latest
+    needs: [hygiene-and-compliance]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: TypeScript strict lint check
+        run: npm run lint
+
+      - name: Production Vite & PWA Build
+        run: npm run build
+
+      - name: Verify Cloudflare Worker Edge Bundle
+        run: |
+          npx esbuild worker/index.ts --bundle --format=esm --platform=browser --outfile=/tmp/swarakala-worker.mjs
+          ls -lh /tmp/swarakala-worker.mjs
+
+      - name: Verify Core Engine, Localization, MIDI & Dist Security
+        run: node scripts/verify-repo-compliance.mjs --with-dist
+
+      - name: Generate Software Bill of Materials (SBOM SPDX)
+        uses: anchore/sbom-action@v0
+        with:
+          path: .
+          format: spdx-json
+          output-file: swarakala-studio.spdx.json
+
+      - name: Upload Build & SBOM Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: swarakala-build-and-sbom
+          path: |
+            dist/
+            swarakala-studio.spdx.json
+          retention-days: 14

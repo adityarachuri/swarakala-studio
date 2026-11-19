@@ -1,0 +1,6 @@
+# Permanent Codeowner & Maintainer for SwaraKala Studio
+* @adityarachuri
+/.github/ @adityarachuri
+/worker/ @adityarachuri
+/server.ts @adityarachuri
+/SECURITY.md @adityarachuri

@@ -1,0 +1,34 @@
+name: Bug Report
+description: Report a defect in SwaraKala Studio audio engine, UI, MIDI mapping, or API routes.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+assignees:
+  - adityarachuri
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Clear description of the defect and expected behavior.
+    validations:
+      required: true
+  - type: dropdown
+    id: subsystem
+    attributes:
+      label: Affected Subsystem
+      options:
+        - Console & Sequencer
+        - Web Audio / Tanpura Engine
+        - Web MIDI Mapping
+        - 3D Stage
+        - Literature & Raga Discovery
+        - Cloudflare Worker / Backend API
+        - PWA & Offline Storage
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction Steps
+    validations:
+      required: true

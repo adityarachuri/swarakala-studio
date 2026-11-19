@@ -1,0 +1,6 @@
+{
+  "name": "SwaraKala Studio",
+  "description": "An offline-capable AI music studio & multi-track DAW uniting Indian Carnatic, Hindustani, and Western composition with microtonal synthesis, Tala sequencing, and conservatory pedagogy.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

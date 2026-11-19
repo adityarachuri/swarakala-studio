@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+set -eu
+
+echo "[pre-commit] Running SwaraKala Studio DevSecOps compliance & typecheck gates..."
+node scripts/verify-repo-compliance.mjs
+npm run lint

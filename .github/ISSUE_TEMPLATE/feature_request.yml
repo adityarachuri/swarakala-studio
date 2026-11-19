@@ -1,0 +1,14 @@
+name: Feature Request
+description: Propose a new musical tradition, raga, instrument, or studio capability.
+title: "[Feature]: "
+labels: ["enhancement"]
+assignees:
+  - adityarachuri
+body:
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal & Musical Context
+      description: Describe the studio workflow improvement and primary literature references if applicable.
+    validations:
+      required: true
