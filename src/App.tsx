@@ -1260,18 +1260,13 @@ export default function App() {
                 Codeowner, Security &amp; Runtime
               </h2>
               <div className="space-y-1.5 text-xs leading-relaxed">
-                <p className="text-slate-700 dark:text-slate-300 font-medium">
-                  Aditya Rachuri (@adityarachuri)
-                </p>
-                <p>Permanent Codeowner · MIT License</p>
+                <p>MIT License</p>
                 <p>
                   <a
-                    href="https://github.com/adityarachuri"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="mailto:aditya.rachuri1984@gmail.com"
                     className="hover:text-amber-600 dark:hover:text-amber-300 transition-colors underline underline-offset-2"
                   >
-                    @adityarachuri on GitHub
+                    aditya.rachuri1984@gmail.com
                   </a>
                 </p>
                 <p className="text-slate-500 dark:text-slate-500">
@@ -1283,7 +1278,7 @@ export default function App() {
 
           <div className="mt-8 pt-5 border-t border-slate-200 dark:border-slate-800/80 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-500">
             <span>
-              &copy; {new Date().getFullYear()} Aditya Rachuri (@adityarachuri). Permanent Codeowner. All rights reserved.
+              &copy; {new Date().getFullYear()} SwaraKala Studio. All rights reserved.
             </span>
             <span>
               SwaraKala Studio · Web Audio Synthesizer · IndexedDB Local Vault · Lossless WAV &amp; MIDI
