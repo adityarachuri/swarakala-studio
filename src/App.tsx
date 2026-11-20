@@ -1261,14 +1261,6 @@ export default function App() {
               </h2>
               <div className="space-y-1.5 text-xs leading-relaxed">
                 <p>MIT License</p>
-                <p>
-                  <a
-                    href="mailto:aditya.rachuri1984@gmail.com"
-                    className="hover:text-amber-600 dark:hover:text-amber-300 transition-colors underline underline-offset-2"
-                  >
-                    aditya.rachuri1984@gmail.com
-                  </a>
-                </p>
                 <p className="text-slate-500 dark:text-slate-500">
                   Local-first IndexedDB storage · Server-isolated API proxy · Cloudflare Workers edge delivery
                 </p>
