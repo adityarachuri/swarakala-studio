@@ -26,9 +26,8 @@
 
 ## Reporting a Vulnerability
 
-Please report security issues privately and directly to the permanent codeowner:
+Please report security issues privately and directly to the permanent codeowner, **@adityarachuri**, using GitHub's private vulnerability reporting:
 
-- **Email**: `Aditya.Rachuri1984@gmail.com`
-- **GitHub Handle**: `@adityarachuri`
+- Open a report via the **Security** tab → **Report a vulnerability** on this repository, or visit `https://github.com/adityarachuri/swarakala-studio/security/advisories/new`.
 
 Please do **not** open public GitHub issues for undisclosed vulnerabilities. You will receive an acknowledgment within 48 hours.

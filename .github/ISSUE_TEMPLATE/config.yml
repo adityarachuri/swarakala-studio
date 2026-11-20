@@ -2,4 +2,4 @@ blank_issues_enabled: false
 contact_links:
   - name: Security Vulnerability Disclosure
     url: https://github.com/adityarachuri/swarakala-studio/security/policy
-    about: Report security vulnerabilities privately to @adityarachuri (Aditya.Rachuri1984@gmail.com).
+    about: Report security vulnerabilities privately via GitHub to @adityarachuri.

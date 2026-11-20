@@ -1266,10 +1266,12 @@ export default function App() {
                 <p>Permanent Codeowner · MIT License</p>
                 <p>
                   <a
-                    href="mailto:Aditya.Rachuri1984@gmail.com"
+                    href="https://github.com/adityarachuri"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="hover:text-amber-600 dark:hover:text-amber-300 transition-colors underline underline-offset-2"
                   >
-                    Aditya.Rachuri1984@gmail.com
+                    @adityarachuri on GitHub
                   </a>
                 </p>
                 <p className="text-slate-500 dark:text-slate-500">

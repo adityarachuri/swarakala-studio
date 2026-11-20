@@ -30,7 +30,7 @@ Project maintainer **Aditya Rachuri (`@adityarachuri`)** is responsible for clar
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the project maintainer at **Aditya.Rachuri1984@gmail.com**. All complaints will be reviewed and investigated promptly and fairly.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the project maintainer, **@adityarachuri**, via a private message on GitHub or a GitHub security advisory report. All complaints will be reviewed and investigated promptly and fairly.
 
 ## Attribution
 
