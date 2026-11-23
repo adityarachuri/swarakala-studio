@@ -45,7 +45,7 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitest/coverage-v8": "^5.1.1",
-    "autoprefixer": "^10.4.21",
+    "autoprefixer": "^10.7.0",
     "esbuild": "^0.27.0",
     "fake-indexeddb": "^6.2.3",
     "jsdom": "^26.1.0",
